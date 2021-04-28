@@ -5,7 +5,7 @@ import random
 VERSION 1
 
 CONTRIBUTORS:
--VhouAtroph
+-Vhou-Atroph
 '''
 
 #Lists
@@ -34,7 +34,9 @@ hubHR=[#4*
 #6*
 'Apex Mizutsune','Mizutsune','Zinogre','Somnacanth','Barioth','Tobi-Kadachi','Anjanath','Nargacuga','Rathalos','Wind Serpent Ibushi',
 #7*
-'Rakna-Kadaki','Goss Harag','Magnamalo','Almudron','Diablos','Tigrex','Rajang','Thunder Serpent Narwa'
+'Rakna-Kadaki','Goss Harag','Magnamalo','Almudron','Diablos','Tigrex','Rajang','Thunder Serpent Narwa',
+#TU1
+'Bazelgeuse','Chameleos','Kushala Daora','Teostra'
 ]
 weapons=['Hammer','Charge Blade','Greatsword','Hunting Horn','Longsword','Lance','Gunlance','Insect Glaive','Switch Axe','Dual Blades','Sword and Shield','Bow','Light Bowgun','Heavy Bowgun'
 ]
