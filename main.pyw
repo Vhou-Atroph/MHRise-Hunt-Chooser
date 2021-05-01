@@ -69,7 +69,7 @@ def rolltime():
     hunt.configure(text="Low Rank Hub:\n"+random.choice(hubLR))
     wpnchance.configure(text="")
   if defaultquest.get()=='High Rank Hub':
-    hunt.configure(text="High Rank Village:\n"+random.choice(hubHR))
+    hunt.configure(text="High Rank Hub:\n"+random.choice(hubHR))
     wpnchance.configure(text="")
   if random.randint(0,9)>7:
     wpnchance.configure(text="Why not also try out\n"+random.choice(weapons)+"?")
