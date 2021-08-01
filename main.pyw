@@ -50,7 +50,6 @@ window=Tk()
 window.title("Monster Hunter Rise: Random Hunt Chooser")
 window.geometry('180x200')
 window.resizable(0,0)
-window.iconbitmap('img/hammer.ico')
 
 #Dropdown
 selection=Frame(window)
