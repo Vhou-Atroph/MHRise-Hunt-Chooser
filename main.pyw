@@ -2,30 +2,17 @@ from tkinter import *
 import random
 
 '''
-VERSION 2.1
+VERSION 2.2
 
 CONTRIBUTORS:
 -Vhou-Atroph
 '''
 
 #Lists
-questtypes=['Low Rank Village','Low Rank Hub','High Rank Hub'
+questTypes=['Low Rank Village','Low Rank Hub','High Rank Hub'
 ]
 
-#Admittedly this is a little inefficient. I'm pretty sure hubLR and vilLR have exactly the same monsters so I might just merge them into low rank together.
-vilLR=[#2*
-'Great Izuchi','Arzuros','Great Baggi','Lagombi',
-#3*
-'Aknosom','Royal Ludroth','Great Wroggi','Barroth','Kulu-Ya-Ku','Tetranadon','Khezu',
-#4*
-'Bishaten','Somnacanth','Barioth','Rathian','Tobi-Kadachi','Volvidon','Basarios','Pukei-Pukei',
-#5*
-'Magnamalo','Rathalos','Mizutsune','Anjanath','Zinogre','Nargacuga',
-#6*
-'Almudron','Goss Harag','Tigrex','Diablos'
-]
-
-hubLR=[#1*
+allLR=[#1*
 'Great Izuchi','Kulu-Ya-Ku','Great Baggi','Lagombi','Great Wroggi','Aknosom','Arzuros',
 #2*
 'Tetranadon','Bishaten','Pukei-Pukei','Royal Ludroth','Barroth','Khezu','Volvidon','Basarios','Rathian',
@@ -62,49 +49,49 @@ window.resizable(0,0) #Window is not resizable.
 
 #Dropdown
 selection=Frame(window)
-defaultquest=StringVar(window)
-defaultquest.set('Low Rank Village')
-choose=OptionMenu(selection,defaultquest,*questtypes) #Dropdown menu with Low Rank Village as the default value. The options are taken from questtypes.
-rollbtn=Button(selection,text="Roll Hunt") #Creates a button with text "Roll Hunt"
+questChoice=StringVar(window)
+questChoice.set('Low Rank Village') #Default value for questChoice
+choose=OptionMenu(selection,questChoice,*questTypes) #Dropdown menu with Low Rank Village as the default value (as mentioned above). The options are taken from questTypes.
+rollBtn=Button(selection,text="Roll Hunt") #Creates a button with text "Roll Hunt"
 
 #Checkboxes!
 wep=IntVar(window)
 bud=IntVar(window)
-wepCheck=Checkbutton(selection, text="Random weapon?", variable=wep, onvalue=1, offvalue=0)
-teamCheck=Checkbutton(selection, text="Random buddies?", variable=bud, onvalue=1, offvalue=0)
+wepCheck=Checkbutton(selection, text="Random weapon?", variable=wep, onvalue=1, offvalue=0) #Checkbox for choosing if a user may want a random weapon in addition to a random monster.
+teamCheck=Checkbutton(selection, text="Random buddies?", variable=bud, onvalue=1, offvalue=0) #Checkbox for choosing if a user may want a random team selection in addition to a random monster.
 
 #Chosen Hunt
 hunt=Label(selection,text="Your rolled hunt \nwill go here!") #Label before any hunt is rolled.
-weproll=Label(selection)
-budroll=Label(selection)
+wepRoll=Label(selection)
+budRoll=Label(selection)
 
 #Command
 def rolltime():
-  if defaultquest.get()=='Low Rank Village': #defaultquest is also the variable that is looked at when determining what kind of hunt to do. Kinda dumb, might change the name.
-    hunt.configure(text="Low Rank Village:\n"+random.choice(vilLR))
-  if defaultquest.get()=='Low Rank Hub':
-    hunt.configure(text="Low Rank Hub:\n"+random.choice(hubLR))
-  if defaultquest.get()=='High Rank Hub':
+  if questChoice.get()=='Low Rank Village': #questChoice is also the variable that is looked at when determining what kind of hunt to do.
+    hunt.configure(text="Low Rank Village:\n"+random.choice(allLR))
+  if questChoice.get()=='Low Rank Hub':
+    hunt.configure(text="Low Rank Hub:\n"+random.choice(allLR))
+  if questChoice.get()=='High Rank Hub':
     hunt.configure(text="High Rank Hub:\n"+random.choice(hubHR))
   if wep.get()==1:
-    weproll.configure(text="Weapon: "+random.choice(weapons))
+    wepRoll.configure(text="Weapon: "+random.choice(weapons))
   else:
-    weproll.configure(text="Weapon: Your choice!")
+    wepRoll.configure(text="Weapon: Your choice!")
   if bud.get()==1:
-    budroll.configure(text="Buddies: "+random.choice(teams))
+    budRoll.configure(text="Buddies: "+random.choice(teams))
   else:
-    budroll.configure(text="Buddies: Your choice!")
+    budRoll.configure(text="Buddies: Your choice!")
     
-rollbtn.configure(command=rolltime)
+rollBtn.configure(command=rolltime)
 
 #Packing time!!!
 selection.pack(pady=2,padx=2)
 choose.pack()
 wepCheck.pack()
 teamCheck.pack()
-rollbtn.pack(pady=2)
+rollBtn.pack(pady=2)
 hunt.pack(pady=3)
-weproll.pack()
-budroll.pack()
+wepRoll.pack()
+budRoll.pack()
 
 window.mainloop() #Opens the window!
