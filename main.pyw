@@ -2,7 +2,7 @@ from tkinter import *
 import random
 
 '''
-VERSION 3
+VERSION 3.0.1
 
 CONTRIBUTORS:
 -Vhou-Atroph
@@ -46,6 +46,7 @@ window=Tk()
 window.title("MHRise: Random Hunt Chooser") #Fixed the title not showing up by adding in images. So glad I figured that out!
 window.geometry('350x225')
 window.resizable(0,0) #Window is not resizable.
+window.iconbitmap("icons/gargwa.ico")
 
 #Dropdown
 selection=Frame(window)
