@@ -2,7 +2,7 @@ from tkinter import *
 import random
 
 '''
-VERSION 2.2
+VERSION 3
 
 CONTRIBUTORS:
 -Vhou-Atroph
@@ -43,8 +43,8 @@ teams=['Solo','1 Palamute and 1 Palico','2 Palamutes','2 Palicos','1 Palamute','
 #Window
 global window
 window=Tk()
-window.title("MHRise: Random Hunt Chooser") #Uhh the full title doesn't show up. At all. Hmm.
-window.geometry('180x200')
+window.title("MHRise: Random Hunt Chooser") #Fixed the title not showing up by adding in images. So glad I figured that out!
+window.geometry('350x225')
 window.resizable(0,0) #Window is not resizable.
 
 #Dropdown
@@ -62,30 +62,48 @@ teamCheck=Checkbutton(selection, text="Random buddies?", variable=bud, onvalue=1
 
 #Chosen Hunt
 hunt=Label(selection,text="Your rolled hunt \nwill go here!") #Label before any hunt is rolled.
-wepRoll=Label(selection)
-budRoll=Label(selection)
+wepRoll=Label(selection,text="\n\n")
+budRoll=Label(selection,text="\n\n")
+
+#Monster Icons
+defaultIcon=PhotoImage(file='icons/Unknown.png')
+ico=Label(window,image=defaultIcon)
 
 #Command
 def rolltime():
   if questChoice.get()=='Low Rank Village': #questChoice is also the variable that is looked at when determining what kind of hunt to do.
-    hunt.configure(text="Low Rank Village:\n"+random.choice(allLR))
+    monster=random.choice(allLR)
+    newIcon=PhotoImage(file='icons/'+monster+'.png')
+    ico.configure(image=newIcon)
+    ico.image=newIcon
+    hunt.configure(text="Low Rank Village:\n"+monster)
   if questChoice.get()=='Low Rank Hub':
-    hunt.configure(text="Low Rank Hub:\n"+random.choice(allLR))
+    monster=random.choice(allLR)
+    newIcon=PhotoImage(file='icons/'+monster+'.png')
+    ico.configure(image=newIcon)
+    ico.image=newIcon
+    hunt.configure(text="Low Rank Hub:\n"+monster)
   if questChoice.get()=='High Rank Hub':
-    hunt.configure(text="High Rank Hub:\n"+random.choice(hubHR))
+    monster=random.choice(hubHR)
+    newIcon=PhotoImage(file='icons/'+monster+'.png')
+    ico.configure(image=newIcon)
+    ico.image=newIcon
+    hunt.configure(text="High Rank Hub:\n"+monster)
   if wep.get()==1:
-    wepRoll.configure(text="Weapon: "+random.choice(weapons))
+    wepRoll.configure(text="Weapon:\n"+random.choice(weapons))
+  elif bud.get()==1 and wep.get()==0:
+    wepRoll.configure(text="")
   else:
-    wepRoll.configure(text="Weapon: Your choice!")
+    wepRoll.configure(text="\n\n")
   if bud.get()==1:
-    budRoll.configure(text="Buddies: "+random.choice(teams))
+    budRoll.configure(text="Buddies:\n"+random.choice(teams))
   else:
-    budRoll.configure(text="Buddies: Your choice!")
+    budRoll.configure(text="\n\n")
     
 rollBtn.configure(command=rolltime)
 
 #Packing time!!!
-selection.pack(pady=2,padx=2)
+selection.pack(pady=2,padx=2,side=LEFT)
 choose.pack()
 wepCheck.pack()
 teamCheck.pack()
@@ -93,5 +111,6 @@ rollBtn.pack(pady=2)
 hunt.pack(pady=3)
 wepRoll.pack()
 budRoll.pack()
+ico.pack(side=RIGHT)
 
 window.mainloop() #Opens the window!
