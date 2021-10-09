@@ -2,7 +2,7 @@ from tkinter import *
 import random
 
 '''
-VERSION 3.1.0
+VERSION 3.1.1
 
 CONTRIBUTORS:
 -Vhou-Atroph
@@ -106,6 +106,7 @@ def rolltime():
   if wep.get()==1:
     wepLabel.configure(text="Weapon:")
     wepRoll.configure(text=random.choice(weapons))
+    
   elif bud.get()==1 and wep.get()==0:
     wepLabel.configure(text="")
     wepRoll.configure(text="")
