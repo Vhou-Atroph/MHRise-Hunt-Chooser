@@ -2,25 +2,23 @@ from tkinter import *
 import random
 
 '''
-VERSION 3.1.1
+VERSION 3.2
 
 CONTRIBUTORS:
 -Vhou-Atroph
 '''
 
 #Lists
-questTypes=['Low Rank Village','Low Rank Hub','High Rank Hub'
+quest_types=['Low Rank','High Rank'
 ]
 
-allLR=[#1*
+monsters={"Low Rank":[#1*
 'Great Izuchi','Kulu-Ya-Ku','Great Baggi','Lagombi','Great Wroggi','Aknosom','Arzuros',
 #2*
 'Tetranadon','Bishaten','Pukei-Pukei','Royal Ludroth','Barroth','Khezu','Volvidon','Basarios','Rathian',
 #3*
-'Magnamalo','Diablos','Tigrex','Barioth','Zinogre','Somnacanth','Goss Harag','Tobi-Kadachi','Almudron','Anjanath','Nargacuga','Mizutsune','Rathalos'
-]
-
-hubHR=[#4*
+'Magnamalo','Diablos','Tigrex','Barioth','Zinogre','Somnacanth','Goss Harag','Tobi-Kadachi','Almudron','Anjanath','Nargacuga','Mizutsune','Rathalos'],
+"High Rank":[#4*
 'Apex Arzuros','Great Izuchi','Arzuros','Kulu-Ya-Ku','Great Baggi','Aknosom','Tetranadon','Lagombi','Khezu','Great Wroggi',
 #5*
 'Apex Rathian','Jyuratodus','Rathian','Basarios','Pukei-Pukei','Bishaten','Volvidon','Barroth','Royal Ludroth',
@@ -33,6 +31,7 @@ hubHR=[#4*
 #TU2
 'Apex Zinogre','Crimson Glow Valstrax','Narwa the Allmother'
 ]
+}
 
 weapons=['Hammer','Charge Blade','Greatsword','Hunting Horn','Longsword','Lance','Gunlance','Insect Glaive','Switch Axe','Dual Blades','Sword and Shield','Bow','Light Bowgun','Heavy Bowgun'
 ]
@@ -50,94 +49,77 @@ window.iconbitmap("icons/gargwa.ico")
 
 #Dropdown
 selection=Frame(window)
-questChoice=StringVar(window)
-questChoice.set('Low Rank Village') #Default value for questChoice
-choose=OptionMenu(selection,questChoice,*questTypes) #Dropdown menu with Low Rank Village as the default value (as mentioned above). The options are taken from questTypes.
-rollBtn=Button(selection,text="Roll Hunt") #Creates a button with text "Roll Hunt"
+quest_choice=StringVar(window)
+quest_choice.set('Low Rank') #Default value for quest_choice
+choose=OptionMenu(selection,quest_choice,*quest_types) #Dropdown menu with Low Rank Village as the default value (as mentioned above). The options are taken from quest_types.
+roll_hunt=Button(selection,text="Roll Hunt") #Creates a button with text "Roll Hunt"
 
 #Checkboxes!
 wep=IntVar(window)
 bud=IntVar(window)
-wepCheck=Checkbutton(selection, text="Random weapon", variable=wep, onvalue=1, offvalue=0) #Checkbox for choosing if a user may want a random weapon in addition to a random monster.
-teamCheck=Checkbutton(selection, text="Random buddies", variable=bud, onvalue=1, offvalue=0) #Checkbox for choosing if a user may want a random team selection in addition to a random monster.
+wep_check=Checkbutton(selection, text="Random weapon", variable=wep, onvalue=1, offvalue=0) #Checkbox for choosing if a user may want a random weapon in addition to a random monster.
+team_check=Checkbutton(selection, text="Random buddies", variable=bud, onvalue=1, offvalue=0) #Checkbox for choosing if a user may want a random team selection in addition to a random monster.
 
 #Chosen Hunt
-theHunt=Frame(selection)
+the_hunt=Frame(selection)
 
-hunt=Label(theHunt,font=('Arial',8,'bold'),width=20)
-questMonster=Label(theHunt,text="Your rolled hunt \nwill go here!") #Label before any hunt is rolled.
+hunt=Label(the_hunt,font=('Arial',8,'bold'),width=20)
+quest_monster=Label(the_hunt,text="Your rolled hunt\nwill go here!") #Label before any hunt is rolled.
 
-wepLabel=Label(theHunt,text="\n",font=('Arial',8,'bold'))
-wepRoll=Label(theHunt,text="\n")
+wep_lbl=Label(the_hunt,text="\n",font=('Arial',8,'bold'))
+wep_roll=Label(the_hunt,text="\n")
 
-budLabel=Label(theHunt,text="\n",font=('Arial',8,'bold'))
-budRoll=Label(theHunt,text="\n\n")
+bud_lbl=Label(the_hunt,text="\n",font=('Arial',8,'bold'))
+bud_roll=Label(the_hunt,text="\n\n")
 
 #Monster Icons
-defaultIcon=PhotoImage(file='icons/Unknown.png')
-ico=Label(window,image=defaultIcon)
+default_icon=PhotoImage(file='icons/Unknown.png')
+ico=Label(window,image=default_icon)
 
 #Command
 def rolltime():
-  if questChoice.get()=='Low Rank Village': #questChoice is also the variable that is looked at when determining what kind of hunt to do.
-    monster=random.choice(allLR)
-    newIcon=PhotoImage(file='icons/'+monster+'.png')
-    ico.configure(image=newIcon)
-    ico.image=newIcon
-    hunt.configure(text="\nLow Rank Village:")
-    questMonster.configure(text=monster)
-    
-  if questChoice.get()=='Low Rank Hub':
-    monster=random.choice(allLR)
-    newIcon=PhotoImage(file='icons/'+monster+'.png')
-    ico.configure(image=newIcon)
-    ico.image=newIcon
-    hunt.configure(text="\nLow Rank Hub:")
-    questMonster.configure(text=monster)
-    
-  if questChoice.get()=='High Rank Hub':
-    monster=random.choice(hubHR)
-    newIcon=PhotoImage(file='icons/'+monster+'.png')
-    ico.configure(image=newIcon)
-    ico.image=newIcon
-    hunt.configure(text="\nHigh Rank Hub:")
-    questMonster.configure(text=monster)
+  monster=random.choice(monsters.get(quest_choice.get()))
+  new_icon=PhotoImage(file='icons/'+monster+'.png')
+  ico.configure(image=new_icon)
+  ico.image=new_icon
+  hunt.configure(text="\n"+quest_choice.get()+":")
+  quest_monster.configure(text=monster)
     
   if wep.get()==1:
-    wepLabel.configure(text="Weapon:")
-    wepRoll.configure(text=random.choice(weapons))
+    wep_lbl.configure(text="Weapon:")
+    wep_roll.configure(text=random.choice(weapons))
     
   elif bud.get()==1 and wep.get()==0:
-    wepLabel.configure(text="")
-    wepRoll.configure(text="")
+    wep_lbl.configure(text="")
+    wep_roll.configure(text="")
     
   else:
-    wepLabel.configure(text="")
-    wepRoll.configure(text="\n")
+    wep_lbl.configure(text="")
+    wep_roll.configure(text="\n")
     
   if bud.get()==1:
-    budLabel.configure(text="Buddies:")
-    budRoll.configure(text=random.choice(teams))
+    bud_lbl.configure(text="Buddies:")
+    bud_roll.configure(text=random.choice(teams))
     
   else:
-    budLabel.configure(text="")
-    budRoll.configure(text="\n")
+    bud_lbl.configure(text="")
+    bud_roll.configure(text="\n")
     
-rollBtn.configure(command=rolltime)
+roll_hunt.configure(command=rolltime)
 
 #Packing time!!!
 selection.pack(pady=2,padx=2,side=LEFT)
 choose.pack()
-wepCheck.pack()
-teamCheck.pack()
-rollBtn.pack(pady=3)
-theHunt.pack(pady=3)
+wep_check.pack()
+team_check.pack()
+roll_hunt.pack(pady=3)
+the_hunt.pack(pady=3)
 hunt.pack()
-questMonster.pack()
-wepLabel.pack(pady=1)
-wepRoll.pack()
-budLabel.pack(pady=1)
-budRoll.pack()
+quest_monster.pack()
+wep_lbl.pack(pady=1)
+wep_roll.pack()
+bud_lbl.pack(pady=1)
+bud_roll.pack()
 ico.pack(side=RIGHT)
 
 window.mainloop() #Opens the window!
