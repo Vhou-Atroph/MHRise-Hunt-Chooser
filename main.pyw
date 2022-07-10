@@ -2,14 +2,14 @@ from tkinter import *
 import random
 
 '''
-VERSION 3.2
+VERSION 3.3
 
 CONTRIBUTORS:
 -Vhou-Atroph
 '''
 
 #Lists
-quest_types=['Low Rank','High Rank'
+quest_types=['Low Rank','High Rank','Master Rank'
 ]
 
 monsters={"Low Rank":[#1*
@@ -29,7 +29,19 @@ monsters={"Low Rank":[#1*
 #TU1
 'Bazelgeuse','Chameleos','Kushala Daora','Teostra','Apex Rathalos','Apex Diablos',
 #TU2
-'Apex Zinogre','Crimson Glow Valstrax','Narwa the Allmother'
+'Apex Zinogre','Crimson Glow Valstrax','Narwa the Allmother'],
+"Master Rank":[#G1
+'Daimyo Hermitaur','Aknosom','Volvidon','Barroth','Great Wroggi','Lagombi','Great Baggi','Kulu-Ya-Ku','Royal Ludroth','Arzuros','Tetranadon','Great Izuchi',
+#G2
+'Blood Orange Bishaten','Tobi-Kadachi','Basarios','Jyuratodus','Rathian','Khezu','Somnacanth','Pukei-Pukei','Anjanath','Bishaten',
+#G3
+'Garangolm','Nargacuga','Rakna-Kadaki','Magnamalo','Shogun Ceanataur','Almudron','Barioth','Goss Harag','Aurora Somnacanth',
+#G4
+'Lunagaron','Gore Magala','Tigrex','Pyre Rakna-Kadaki','Zinogre','Seregios','Magma Almudron','Mizutsune','Diablos','Rathalos','Astalos','Espinas',
+#G5
+'Malzeno','Chameleos','Teostra','Rajang','Bazelgeuse','Shagaru Magala','Kushala Daora',
+#G6
+'Gaismagorm','Wind Serpent Ibushi','Narwa the Allmother','Furious Rajang','Crimson Glow Valstrax','Scorned Magnamalo'
 ]
 }
 
