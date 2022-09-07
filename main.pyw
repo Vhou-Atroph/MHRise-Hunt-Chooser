@@ -41,7 +41,9 @@ monsters={"Low Rank":[#1*
 #G5
 'Malzeno','Chameleos','Teostra','Rajang','Bazelgeuse','Shagaru Magala','Kushala Daora',
 #G6
-'Gaismagorm','Wind Serpent Ibushi','Narwa the Allmother','Furious Rajang','Crimson Glow Valstrax','Scorned Magnamalo'
+'Gaismagorm','Wind Serpent Ibushi','Narwa the Allmother','Furious Rajang','Crimson Glow Valstrax','Scorned Magnamalo',
+#TU1
+'Seething Bazelgeuse','Silver Rathalos','Gold Rathian','Lucent Nargacuga'
 ]
 }
 
