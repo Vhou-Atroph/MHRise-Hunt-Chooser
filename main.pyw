@@ -6,6 +6,7 @@ VERSION 3.3.1
 
 CONTRIBUTORS:
 -Vhou-Atroph
+-PurpleShad0w
 '''
 
 #Lists
@@ -43,7 +44,9 @@ monsters={"Low Rank":[#1*
 #G6
 'Gaismagorm','Wind Serpent Ibushi','Narwa the Allmother','Furious Rajang','Crimson Glow Valstrax','Scorned Magnamalo',
 #TU1
-'Seething Bazelgeuse','Silver Rathalos','Gold Rathian','Lucent Nargacuga'
+'Seething Bazelgeuse','Silver Rathalos','Gold Rathian','Lucent Nargacuga',
+#TU2
+'Flaming Espinas','Violet Mizutsune','Risen Chameleos'
 ]
 }
 
