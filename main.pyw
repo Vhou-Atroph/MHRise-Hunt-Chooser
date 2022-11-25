@@ -46,7 +46,9 @@ monsters={"Low Rank":[#1*
 #TU1
 'Seething Bazelgeuse','Silver Rathalos','Gold Rathian','Lucent Nargacuga',
 #TU2
-'Flaming Espinas','Violet Mizutsune','Risen Chameleos'
+'Flaming Espinas','Violet Mizutsune','Risen Chameleos',
+#TU3
+'Chaotic Gore Magala',#'Risen Kushala Daora','Risen Teostra'
 ]
 }
 
