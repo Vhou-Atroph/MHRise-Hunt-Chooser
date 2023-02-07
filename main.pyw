@@ -48,9 +48,9 @@ monsters={"Low Rank":[#1*
 #TU2
 'Flaming Espinas','Violet Mizutsune','Risen Chameleos',
 #TU3
-'Chaotic Gore Magala','Risen Kushala Daora','Risen Teostra'
+'Chaotic Gore Magala','Risen Kushala Daora','Risen Teostra',
 #TU4
-#'Velkhana','Risen Crimson Glow Valstrax'
+'Velkhana',#'Risen Crimson Glow Valstrax'
 ]
 }
 
