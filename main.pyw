@@ -50,7 +50,9 @@ monsters={"Low Rank":[#1*
 #TU3
 'Chaotic Gore Magala','Risen Kushala Daora','Risen Teostra',
 #TU4
-'Velkhana','Risen Crimson Glow Valstrax'
+'Velkhana','Risen Crimson Glow Valstrax',
+#TU5
+'Amatsu','Risen Shagaru Magala'
 ]
 }
 
