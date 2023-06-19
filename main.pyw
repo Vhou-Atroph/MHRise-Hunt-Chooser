@@ -52,7 +52,9 @@ monsters={"Low Rank":[#1*
 #TU4
 'Velkhana','Risen Crimson Glow Valstrax',
 #TU5
-'Amatsu','Risen Shagaru Magala'
+'Amatsu','Risen Shagaru Magala',
+#TU6
+'Primordial Malzeno'
 ]
 }
 
